@@ -37,6 +37,16 @@ class LoginViewController: UIViewController {
         })
         
         
+        
+        
+        let SpotifyClientID = "1387473f6a5f4ac38e34153b0cb4df83"
+        let SpotifyRedirectURL = URL(string: "spotify-ios-quick-start://spotify-login-callback")!
+        
+        lazy var configuration = SPTConfiguration(
+            clientID: SpotifyClientID,
+            redirectURL: SpotifyRedirectURL
+        )
+        
     }
     
     /*

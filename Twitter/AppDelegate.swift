@@ -9,8 +9,9 @@
 import UIKit
 import BDBOAuth1Manager
 
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, SPTSessionManagerDelegate{
 
     var window: UIWindow?
 
@@ -45,6 +46,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         TwitterAPICaller.client?.handleOpenUrl(url: url)
         return true
+    }
+    
+    func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {
+        print("success", session)
+    }
+    func sessionManager(manager: SPTSessionManager, didFailWith error: Error) {
+        print("fail", error)
+    }
+    func sessionManager(manager: SPTSessionManager, didRenew session: SPTSession) {
+        print("renewed", session)
     }
 
 }
