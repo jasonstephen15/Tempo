@@ -1,8 +1,15 @@
 import UIKit
+import Alamofire
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
     var window: UIWindow?
+    
+
+    
+    
     
     let SpotifyClientID = "1387473f6a5f4ac38e34153b0cb4df83"
     let SpotifyRedirectURL = URL(string: "spotify-ios-quick-start://spotify-login-callback")!
@@ -13,6 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTSessionManagerDelegate
     )
     
     lazy var sessionManager: SPTSessionManager = {
+        
+        
+        // Swapping code for access_token
+        Alamofire.request(.POST, "https://yourapp.herokuapp.com/api/token", ["code": "[code]"])
+        
+        // Swapping refresh_token for access_token
+        Alamofire.request(.POST, "https://yourapp.herokuapp.com/api/refresh_token", ["refresh_token": "[refresh token]"])
+        
+        
         if let tokenSwapURL = URL(string: "https://[your token swap app domain here]/api/token"),
             let tokenRefreshURL = URL(string: "https://[your token swap app domain here]/api/refresh_token") {
             self.configuration.tokenSwapURL = tokenSwapURL

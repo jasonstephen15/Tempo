@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class LoginViewController: UIViewController, WKNavigationDelegate{
+class LoginViewController: UIViewController, WKNavigationDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
