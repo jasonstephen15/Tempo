@@ -12,6 +12,7 @@ import Alamofire
 class ProfileViewController: UIViewController {
 
     var programVar : String?
+    var name : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,20 @@ class ProfileViewController: UIViewController {
         
         Alamofire.request("https://api.spotify.com/v1/me", method: .get, headers: headers).responseJSON { response in
             debugPrint(response)
+            
+            let value = response.result.value as? NSDictionary
+            let title = value!["display_name"] as? String
+            self.name = title
+            
+            if let json = response.result.value {
+                //print("JSON: \(json)") // serialized json response
+               
+            }
+            
+            print(title ?? String());
+            self.usernameLabel.text = self.name
+
+            
         }
         
         
@@ -38,6 +53,8 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func onCreatePlaylist(_ sender: Any) {
+        
+        usernameLabel.text = name
     }
     
     /*
