@@ -55,6 +55,9 @@ class ProfileViewController: UIViewController {
     @IBAction func onCreatePlaylist(_ sender: Any) {
         
         usernameLabel.text = name
+        
+        //self.performSegue(withIdentifier: "makePlaylist", sender: self)
+
     }
     
     /*
@@ -66,5 +69,16 @@ class ProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Create a variable that you want to send
+        let token = String(programVar!)
+        
+        // Create a new variable to store the instance of PlayerTableViewController
+        let destinationVC = segue.destination as! CreatePlaylistViewController
+        
+        destinationVC.token = token
+    }
 
 }
