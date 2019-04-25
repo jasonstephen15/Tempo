@@ -50,17 +50,7 @@ class LoginViewController: UIViewController, UIApplicationDelegate, SPTSessionMa
         token = session.accessToken
         self.appRemote.connect()
         
-        
-        let headers: HTTPHeaders = [
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + self.appRemote.connectionParameters.accessToken!
-        ]
-        
-        Alamofire.request("https://api.spotify.com/v1/users/jasonstephen15/playlists", method: .get, headers: headers).responseJSON { response in
-            debugPrint(response)
-        }
-        
+
         
         self.performSegue(withIdentifier: "loginToHome", sender: self)
         
@@ -117,4 +107,16 @@ class LoginViewController: UIViewController, UIApplicationDelegate, SPTSessionMa
         self.sessionManager.application(app, open: url, options: options)
         return true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Create a variable that you want to send
+        let newProgramVar = String(self.appRemote.connectionParameters.accessToken!)
+        
+        // Create a new variable to store the instance of PlayerTableViewController
+        let destinationVC = segue.destination as! UINavigationController
+        let svc = destinationVC.topViewController as! ProfileViewController
+        svc.programVar = newProgramVar
+    }
 }
+
