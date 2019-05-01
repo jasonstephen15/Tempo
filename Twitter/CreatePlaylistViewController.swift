@@ -48,13 +48,13 @@ class CreatePlaylistViewController: UIViewController {
             var idArray = [String]();
             
             for item in items{
-                print(item["id"] as! String)
+                //print(item["id"] as! String)
                 idArray.append(item["id"] as! String)
                 
             }
             
             for id in idArray{
-                print(id)
+                //print(id)
             }
             
             self.playlistArray = idArray
@@ -62,40 +62,43 @@ class CreatePlaylistViewController: UIViewController {
             if let json = response.result.value {
                  //print("JSON: \(json)") // serialized json response
             }
-    
     }
         
+        
+        
+//        for playlist in playlistArray{
+//            print(playlist)
+//        }
+        
         for playlist in playlistArray{
+
+            print("reached")
             
             url = "https://api.spotify.com/v1/playlists/" + playlist + "/tracks"
-            
+
             Alamofire.request(url, method: .get, headers: headers).responseJSON { response in
-                //            debugPrint(response)
-                
+
                 let value = response.result.value as! NSDictionary
-                let items = value["items"] as! [NSDictionary]
+                let items = value["items"] as! NSDictionary
+                let tracks = items["tracks"] as![NSDictionary]
+                
                 var nameArray = [String]();
-                var trackArray = [NSDictionary]();
-                
-                for item in items{
-                    print(item["id"] as! String)
-                    trackArray.append(item["track"] as! NSDictionary)
-                }
-                
-                for track in trackArray{
-                    print(track["name"] as! String)
+
+                for track in tracks{
+                    //print(item["id"] as! String)
+                    nameArray.append(items["name"] as! String)
+                    print(items["name"]as! String)
                 }
 
-                
                 if let json = response.result.value {
                     //print("JSON: \(json)") // serialized json response
                 }
-                
+
             }
         }
-        
-        
-    
+
+
+
     /*
     // MARK: - Navigation
 
