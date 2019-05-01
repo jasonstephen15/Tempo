@@ -9,4 +9,5 @@ target 'Twitter' do
   pod 'BDBOAuth1Manager'
   pod 'Alamofire'
   pod 'AlamofireImage'
+  pod 'Parse'
 end
