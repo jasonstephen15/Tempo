@@ -191,12 +191,17 @@
                                 </state>
                                 <connections>
                                     <action selector="onCreatePlaylist:" destination="KQd-a5-0dE" eventType="touchUpInside" id="Lb7-9T-dPf"/>
+                                    <action selector="onSubmitInfo:" destination="Y8m-RE-n5n" eventType="touchUpInside" id="TtD-IM-G63"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Oiu-j4-6hy"/>
                     </view>
+                    <connections>
+                        <outlet property="guestnameField" destination="ssl-pH-QrX" id="00K-qE-BGR"/>
+                        <outlet property="hostField" destination="I6a-oJ-Z7d" id="rMZ-LT-Wan"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fyf-Ue-fQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
