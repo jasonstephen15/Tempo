@@ -79,16 +79,28 @@ class CreatePlaylistViewController: UIViewController {
             Alamofire.request(url, method: .get, headers: headers).responseJSON { response in
 
                 let value = response.result.value as! NSDictionary
-                let items = value["items"] as! NSDictionary
-                let tracks = items["tracks"] as![NSDictionary]
+                let items = value["items"] as! [NSDictionary]
                 
+                var trackArray = [NSDictionary]();
                 var nameArray = [String]();
-
-                for track in tracks{
-                    //print(item["id"] as! String)
-                    nameArray.append(items["name"] as! String)
-                    print(items["name"]as! String)
+                
+                for item in items{
+                    trackArray.append(item["track"] as! NSDictionary)
                 }
+                
+                for track in trackArray{
+                    nameArray.append(track["name"] as! String)
+                }
+                print(nameArray)
+                //let tracks = items["tracks"] as![NSDictionary]
+                
+//
+//
+//                for track in tracks{
+//                    //print(item["id"] as! String)
+//                    nameArray.append(items["name"] as! String)
+//                    print(items["name"]as! String)
+//                }
 
                 if let json = response.result.value {
                     //print("JSON: \(json)") // serialized json response
