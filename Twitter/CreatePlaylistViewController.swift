@@ -10,17 +10,19 @@ import UIKit
 import Alamofire
 
 class CreatePlaylistViewController: UIViewController {
-
+    
     @IBOutlet weak var hostField: UITextField!
     @IBOutlet weak var guestnameField: UITextField!
     
     
-        var token : String?
-        var playlistArray = [String]();
+    var token : String?
+    var playlistArray = [String]();
+    var nameList = [String]();
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         print(token as Any)
         // Do any additional setup after loading the view.
     }
@@ -31,7 +33,7 @@ class CreatePlaylistViewController: UIViewController {
         
         let guestname = guestnameField.text!
         var url = "https://api.spotify.com/v1/users/" + guestname + "/playlists"
-   
+        
         let headers: HTTPHeaders = [
             "Accept": "application/json",
             "Content-Type": "application/json",
@@ -39,7 +41,7 @@ class CreatePlaylistViewController: UIViewController {
         ]
         
         Alamofire.request(url, method: .get, headers: headers).responseJSON { response in
-//            debugPrint(response)
+            //            debugPrint(response)
             
             let value = response.result.value as! NSDictionary
             //let title = value!["display_name"] as? String
@@ -53,73 +55,49 @@ class CreatePlaylistViewController: UIViewController {
                 
             }
             
-            for id in idArray{
-                //print(id)
-            }
-            
             self.playlistArray = idArray
             
             if let json = response.result.value {
-                 //print("JSON: \(json)") // serialized json response
+                //print("JSON: \(json)") // serialized json response
             }
-    }
-        
-        
-        
-//        for playlist in playlistArray{
-//            print(playlist)
-//        }
-        
-        for playlist in playlistArray{
-
-            print("reached")
             
-            url = "https://api.spotify.com/v1/playlists/" + playlist + "/tracks"
-
-            Alamofire.request(url, method: .get, headers: headers).responseJSON { response in
-
-                let value = response.result.value as! NSDictionary
-                let items = value["items"] as! [NSDictionary]
+            for playlist in self.playlistArray {
                 
-                var trackArray = [NSDictionary]();
-                var nameArray = [String]();
+                print("reached")
                 
-                for item in items{
-                    trackArray.append(item["track"] as! NSDictionary)
+                url = "https://api.spotify.com/v1/playlists/" + playlist + "/tracks"
+                
+                Alamofire.request(url, method: .get, headers: headers).responseJSON { response in
+                    
+                    let value = response.result.value as! NSDictionary
+                    let items = value["items"] as! [NSDictionary]
+                    
+                    var trackArray = [NSDictionary]();
+                    
+                    for item in items{
+                        trackArray.append(item["track"] as! NSDictionary)
+                    }
+                    
+                    for track in trackArray{
+                        self.nameList.append(track["name"] as! String)
+                    }
+                    //let tracks = items["tracks"] as![NSDictionary]
+                    
+                    //
+                    //
+                    //                for track in tracks{
+                    //                    //print(item["id"] as! String)
+                    //                    nameArray.append(items["name"] as! String)
+                    //                    print(items["name"]as! String)
+                    //                }
+                    
+                    if let json = response.result.value {
+                        //print("JSON: \(json)") // serialized json response
+                    }
+                    
+                    print(self.nameList)
                 }
-                
-                for track in trackArray{
-                    nameArray.append(track["name"] as! String)
-                }
-                print(nameArray)
-                //let tracks = items["tracks"] as![NSDictionary]
-                
-//
-//
-//                for track in tracks{
-//                    //print(item["id"] as! String)
-//                    nameArray.append(items["name"] as! String)
-//                    print(items["name"]as! String)
-//                }
-
-                if let json = response.result.value {
-                    //print("JSON: \(json)") // serialized json response
-                }
-
             }
         }
-
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
-}
 }
