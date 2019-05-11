@@ -192,7 +192,7 @@
                                 <connections>
                                     <action selector="onCreatePlaylist:" destination="KQd-a5-0dE" eventType="touchUpInside" id="Lb7-9T-dPf"/>
                                     <action selector="onSubmitInfo:" destination="Y8m-RE-n5n" eventType="touchUpInside" id="TtD-IM-G63"/>
-                                    <segue destination="f9K-Zc-vOY" kind="push" identifier="showPlaylist" id="YS2-tb-w5V"/>
+                                    <segue destination="f9K-Zc-vOY" kind="show" identifier="showPlaylist" id="YS2-tb-w5V"/>
                                 </connections>
                             </button>
                         </subviews>

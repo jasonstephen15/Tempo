@@ -21,6 +21,9 @@ class ShowPlaylistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        print(nameList)
+        
         // Do any additional setup after loading the view.
     }
     

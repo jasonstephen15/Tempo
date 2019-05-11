@@ -87,9 +87,12 @@ class CreatePlaylistViewController: UIViewController {
             
             self.counter += 1;
             
+            //print(self.counter)
+            
             if(self.counter%2 == 0){
                 
-                
+                self.performSegue(withIdentifier: "showPlaylist", sender: "NavigationController")
+
             }
         
         }
@@ -109,6 +112,13 @@ class CreatePlaylistViewController: UIViewController {
         
         destinationVC.token = token2
         destinationVC.nameList = listOfNames
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if ((self.counter > 0) && (self.counter % 2 == 0)){
+            return true
+        }
+        return false
     }
 
 }
