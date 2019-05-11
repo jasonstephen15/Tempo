@@ -17,6 +17,7 @@
 		96561C33227172ED008F8830 /* CreatePlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96561C32227172ED008F8830 /* CreatePlaylistViewController.swift */; };
 		96A9A2E722220B44008FCD80 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9A2E622220B44008FCD80 /* LoginViewController.swift */; };
 		96A9A2EF22225057008FCD80 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9A2EE22225057008FCD80 /* HomeTableViewController.swift */; };
+		96B57EDD2287844300E231E0 /* ShowPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B57EDC2287844300E231E0 /* ShowPlaylistViewController.swift */; };
 		96F5EE402224BEED00DE3123 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F5EE3F2224BEED00DE3123 /* TweetCell.swift */; };
 		96F5EE42222766D200DE3123 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F5EE41222766D200DE3123 /* TweetViewController.swift */; };
 		B2C721CA2267E72800B596D4 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C721C92267E72800B596D4 /* SpotifyiOS.framework */; };
@@ -36,6 +37,7 @@
 		96561C32227172ED008F8830 /* CreatePlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlaylistViewController.swift; sourceTree = "<group>"; };
 		96A9A2E622220B44008FCD80 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		96A9A2EE22225057008FCD80 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		96B57EDC2287844300E231E0 /* ShowPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPlaylistViewController.swift; sourceTree = "<group>"; };
 		96F5EE3F2224BEED00DE3123 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		96F5EE41222766D200DE3123 /* TweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
 		B2C721C92267E72800B596D4 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				6EBCF52921DF07FC00451C03 /* Main.storyboard */,
 				6EBCF54321E047A500451C03 /* TwitterAPICaller.swift */,
 				6EBCF52521DF07FC00451C03 /* AppDelegate.swift */,
+				96B57EDC2287844300E231E0 /* ShowPlaylistViewController.swift */,
 				37D29B8521F90E3400984A88 /* Assets.xcassets */,
 				6EBCF53121DF07FE00451C03 /* Info.plist */,
 				96A9A2E622220B44008FCD80 /* LoginViewController.swift */,
@@ -232,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96B57EDD2287844300E231E0 /* ShowPlaylistViewController.swift in Sources */,
 				96A9A2EF22225057008FCD80 /* HomeTableViewController.swift in Sources */,
 				96A9A2E722220B44008FCD80 /* LoginViewController.swift in Sources */,
 				96561C33227172ED008F8830 /* CreatePlaylistViewController.swift in Sources */,
