@@ -7,27 +7,76 @@
 //
 
 import UIKit
+import Alamofire
 
 
 
-
-class ShowPlaylistViewController: UIViewController {
-
+class ShowPlaylistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var token : String?
     var nameList = [String]();
-    
+    var uriList = [String]();
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        print(nameList)
+        tableView.reloadData()
+         
+        //print(nameList)
+        print(uriList)
         
         // Do any additional setup after loading the view.
     }
     
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellSong", for: indexPath)
+        
+        let song = nameList[indexPath.row]
+        cell.textLabel?.text = song
+        
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 
+    @IBAction func onConfirm(_ sender: Any) {
+        
+        let params : Parameters = [
+            "name": "TESTEERRRRR",
+            "description": "New playlist description",
+            "public": false
+        ]
+        
+        
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + token!
+        ]
+        
+        Alamofire.request("https://api.spotify.com/v1/playlists", method: .post, parameters: params, headers: headers).responseJSON { response in
+            
+            debugPrint(response)
+            
+        
+
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

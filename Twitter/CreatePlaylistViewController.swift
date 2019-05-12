@@ -18,6 +18,7 @@ class CreatePlaylistViewController: UIViewController {
     var token : String?
     var playlistArray = [String]();
     var nameList = [String]();
+    var uriList = [String]();
     var counter = 0;
     
     override func viewDidLoad() {
@@ -75,6 +76,8 @@ class CreatePlaylistViewController: UIViewController {
         
                     for track in trackArray{
                         self.nameList.append(track["name"] as! String)
+                        self.uriList.append(track["uri"] as! String)
+                        
                     }
                     
                     //print(self.nameList)
@@ -105,13 +108,15 @@ class CreatePlaylistViewController: UIViewController {
         
         // Create a variable that you want to send
         let token2 = String(token!)
-        let listOfNames = nameList;
+        let listOfNames = nameList
+        let listOfUris = uriList
         
         // Create a new variable to store the instance of PlayerTableViewController
         let destinationVC = segue.destination as! ShowPlaylistViewController
         
         destinationVC.token = token2
         destinationVC.nameList = listOfNames
+        destinationVC.uriList = listOfUris
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
