@@ -14,10 +14,15 @@ class CreatePlaylistViewController: UIViewController {
     @IBOutlet weak var hostField: UITextField!
     @IBOutlet weak var guestnameField: UITextField!
     
+    @IBOutlet weak var guestname2Field: UITextField!
     
     var token : String?
     var playlistArray = [String]();
     var nameList = [String]();
+    
+    var secplaylistArray = [String]();
+    var secnameList = [String]();
+    
     var uriList = [String]();
     var counter = 0;
     
@@ -31,6 +36,8 @@ class CreatePlaylistViewController: UIViewController {
     
     @IBAction func onSubmitInfo(_ sender: Any) {
         
+        
+
         let guestname = guestnameField.text!
         print(guestnameField.text!)
         
@@ -85,22 +92,81 @@ class CreatePlaylistViewController: UIViewController {
                 }
             }
             
-        print(self.nameList)
             
             
-            self.counter += 1;
             
-            //print(self.counter)
+            print("JOSH SONG")
+            print(self.nameList)
             
-            if(self.counter%2 == 0){
-                
-                self.performSegue(withIdentifier: "showPlaylist", sender: "NavigationController")
-
-            }
+        }
+                //second
+        let guestname2 = guestname2Field.text!
+        print(guestname2Field.text!)
         
+        
+        
+        var url2 = "https://api.spotify.com/v1/users/" + guestname2 + "/playlists"
+        
+        let headers2: HTTPHeaders = [
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + token!
+        ]
+        
+        
+        Alamofire.request(url2, method: .get, headers: headers2).responseJSON { response in
+            //            debugPrint(response)
+            
+            let value = response.result.value as! NSDictionary
+            let items = value["items"] as! [NSDictionary]
+            var idArray = [String]();
+            
+            for item in items{
+                idArray.append(item["id"] as! String)
+            }
+            
+            self.secplaylistArray = idArray
+            
+            //            if let json = response.result.value {
+            //                //print("JSON: \(json)") // serialized json response
+            //            }
+            
+            
+            for playlist in self.secplaylistArray {
+                url = "https://api.spotify.com/v1/playlists/" + playlist + "/tracks"
+                Alamofire.request(url, method: .get, headers: headers).responseJSON { response in
+                    let value = response.result.value as! NSDictionary
+                    let items = value["items"] as! [NSDictionary]
+                    
+                    var trackArray = [NSDictionary]();
+                    
+                    for item in items{
+                        trackArray.append(item["track"] as! NSDictionary)
+                    }
+                    
+                    for track in trackArray{
+                        self.secnameList.append(track["name"] as! String)
+                        self.uriList.append(track["uri"] as! String)
+                        
+                    }
+                    
+                    //print(self.nameList)
+                    
+                }
+            }
+            
+            
+            
+            print("JASON SONG")
+
+            print(self.secnameList)
+            
+            
+            
         }
     
-    
+        self.counter += 1;
+
     }
 
     
@@ -109,6 +175,7 @@ class CreatePlaylistViewController: UIViewController {
         // Create a variable that you want to send
         let token2 = String(token!)
         let listOfNames = nameList
+        let seclistOfNames = secnameList
         let listOfUris = uriList
         
         // Create a new variable to store the instance of PlayerTableViewController
@@ -116,11 +183,12 @@ class CreatePlaylistViewController: UIViewController {
         
         destinationVC.token = token2
         destinationVC.nameList = listOfNames
+        destinationVC.secnameList = seclistOfNames
         destinationVC.uriList = listOfUris
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if ((self.counter > 0) && (self.counter % 2 == 0)){
+        if ((self.counter > 0) && (self.counter % 3 == 0)){
             return true
         }
         return false

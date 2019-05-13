@@ -18,6 +18,10 @@ class ShowPlaylistViewController: UIViewController, UITableViewDelegate, UITable
     
     var token : String?
     var nameList = [String]();
+    var secnameList = [String]();
+
+    var finalnameList = [String]();
+    
     var uriList = [String]();
     
     override func viewDidLoad() {
@@ -26,7 +30,22 @@ class ShowPlaylistViewController: UIViewController, UITableViewDelegate, UITable
         tableView.reloadData()
          
         //print(nameList)
-        print(uriList)
+        //print(uriList)
+        
+        var firstlen = nameList.count
+        var seclen = secnameList.count
+        
+        var i = 0
+        var j = 0
+        
+        repeat {
+            
+            
+            finalnameList.append(nameList[i])
+            finalnameList.append(secnameList[j])
+            
+        } while i+j < 40
+        
         
         // Do any additional setup after loading the view.
     }
@@ -36,7 +55,7 @@ class ShowPlaylistViewController: UIViewController, UITableViewDelegate, UITable
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellSong", for: indexPath)
         
-        let song = nameList[indexPath.row]
+        let song = finalnameList[indexPath.row]
         cell.textLabel?.text = song
         
         return cell
@@ -59,16 +78,14 @@ class ShowPlaylistViewController: UIViewController, UITableViewDelegate, UITable
             "description": "New playlist description",
             "public": false
         ]
-        
-        
-        
+   
         let headers: HTTPHeaders = [
             "Accept": "application/json",
             "Content-Type": "application/json",
             "Authorization": "Bearer " + token!
         ]
         
-        Alamofire.request("https://api.spotify.com/v1/playlists", method: .post, parameters: params, headers: headers).responseJSON { response in
+        Alamofire.request("https://api.spotify.com/v1/playlists", method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             debugPrint(response)
             
