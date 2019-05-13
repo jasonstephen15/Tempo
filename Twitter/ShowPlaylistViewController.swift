@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-
+import MediaPlayer
 
 class ShowPlaylistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -21,7 +21,8 @@ class ShowPlaylistViewController: UIViewController, UITableViewDelegate, UITable
     var secnameList = [String]();
     var numWanted = Int();
     var finalnameList = [String]();
-    
+    var finaluriList = [String]();
+    var avPlayer : AVPlayer!
     var uriList = [String]();
     
     override func viewDidLoad() {
@@ -42,10 +43,12 @@ class ShowPlaylistViewController: UIViewController, UITableViewDelegate, UITable
             
             if(i < firstlen){
             finalnameList.append(nameList[i])
+            finaluriList.append(uriList[i])
                 i += 1;
             }
             if(j < seclen){
             finalnameList.append(secnameList[j])
+                finaluriList.append(uriList[j])
                 j += 1;
             }
             
@@ -54,6 +57,14 @@ class ShowPlaylistViewController: UIViewController, UITableViewDelegate, UITable
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    func play(url:NSURL) {
+        print("playing \(url)")
+        let playerItem = AVPlayerItem(url: url as URL)
+        
+        self.avPlayer = AVPlayer(playerItem:playerItem)
+        self.avPlayer.play()
     }
     
     
@@ -70,6 +81,14 @@ class ShowPlaylistViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return finalnameList.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var url = finaluriList[indexPath.row]
+        
+        let nsurl = NSURL(string: url)
+        play(url: nsurl!)
+        //print(nameList)
     }
     
     
