@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="TwitterLogoBlue" translatesAutoresizingMaskIntoConstraints="NO" id="EBr-NE-Tm8">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="Icon-180" translatesAutoresizingMaskIntoConstraints="NO" id="EBr-NE-Tm8">
                                 <rect key="frame" x="0.0" y="138" width="375" height="391"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="391" id="2PV-BP-EJJ"/>
@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TwitterLogoBlue" width="400" height="400"/>
+        <image name="Icon-180" width="180" height="180"/>
     </resources>
 </document>
