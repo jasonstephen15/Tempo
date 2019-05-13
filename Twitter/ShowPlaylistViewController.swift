@@ -19,7 +19,7 @@ class ShowPlaylistViewController: UIViewController, UITableViewDelegate, UITable
     var token : String?
     var nameList = [String]();
     var secnameList = [String]();
-
+    var numWanted = Int();
     var finalnameList = [String]();
     
     var uriList = [String]();
@@ -40,11 +40,17 @@ class ShowPlaylistViewController: UIViewController, UITableViewDelegate, UITable
         
         repeat {
             
-            
+            if(i < firstlen){
             finalnameList.append(nameList[i])
+                i += 1;
+            }
+            if(j < seclen){
             finalnameList.append(secnameList[j])
+                j += 1;
+            }
             
-        } while i+j < 40
+            
+        } while i+j < numWanted
         
         
         // Do any additional setup after loading the view.
@@ -63,7 +69,7 @@ class ShowPlaylistViewController: UIViewController, UITableViewDelegate, UITable
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return finalnameList.count
     }
     
     

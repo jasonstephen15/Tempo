@@ -16,6 +16,8 @@ class CreatePlaylistViewController: UIViewController {
     
     @IBOutlet weak var guestname2Field: UITextField!
     
+    @IBOutlet weak var numWanted: UITextField!
+    
     var token : String?
     var playlistArray = [String]();
     var nameList = [String]();
@@ -185,6 +187,7 @@ class CreatePlaylistViewController: UIViewController {
         destinationVC.nameList = listOfNames
         destinationVC.secnameList = seclistOfNames
         destinationVC.uriList = listOfUris
+        destinationVC.numWanted = Int(numWanted.text!)!
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
