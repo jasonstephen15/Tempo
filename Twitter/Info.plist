@@ -4,6 +4,18 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Tempo
+&lt;array&gt;
+  &lt;dict&gt;
+    &lt;key&gt;1387473f6a5f4ac38e34153b0cb4df83&lt;/key&gt;
+    &lt;string&gt;com.spotify.iOS-SDK-Quick-Start&lt;/string&gt;
+    &lt;key&gt;spotify-ios-quick-start://spotify-login-callback&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;spotify-ios-quick-start&lt;/string&gt;
+    &lt;/array&gt;
+  &lt;/dict&gt;
+&lt;/array&gt;</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -32,6 +44,11 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string>&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;spotify&lt;/string&gt;
+&lt;/array&gt;</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -60,22 +77,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>LSApplicationCategoryType</key>
-	<string>&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
-&lt;array&gt;
-  &lt;string&gt;spotify&lt;/string&gt;
-&lt;/array&gt;</string>
-	<key>CFBundleDisplayName</key>
-	<string>&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
-&lt;array&gt;
-  &lt;dict&gt;
-    &lt;key&gt;1387473f6a5f4ac38e34153b0cb4df83&lt;/key&gt;
-    &lt;string&gt;com.spotify.iOS-SDK-Quick-Start&lt;/string&gt;
-    &lt;key&gt;spotify-ios-quick-start://spotify-login-callback&lt;/key&gt;
-    &lt;array&gt;
-      &lt;string&gt;spotify-ios-quick-start&lt;/string&gt;
-    &lt;/array&gt;
-  &lt;/dict&gt;
-&lt;/array&gt;</string>
 </dict>
 </plist>
