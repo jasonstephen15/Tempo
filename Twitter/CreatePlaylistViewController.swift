@@ -148,7 +148,7 @@ class CreatePlaylistViewController: UIViewController {
                     
                     for track in trackArray{
                         self.secnameList.append(track["name"] as! String)
-                        self.uriList.append(track["preview_url"] as? String ?? "https://p.scdn.co/mp3-preview/2d933f6474345c8af7e164356f30f450d0fc1309?cid=5e9ac4fc700442599e05f987a9cb1d4a")
+                        self.uriList.append(track["preview_url"] as? String ?? "http://p.scdn.co/mp3-preview/22bf10aff02db272f0a053dff5c0063d729df988?cid=a46f5c5745a14fbf826186da8da5ecc3")
                         
                     }
                     
