@@ -5,16 +5,18 @@ Group Project - README Template
 
 ## Table of Contents
 1. [Overview](#Overview)
-1. [Product Spec](#Product-Spec)
-1. [Wireframes](#Wireframes)
-2. [Schema](#Schema)
+2. [Product Spec](#Product-Spec)
+3. [Wireframes](#Wireframes)
 
 ## Overview
 ### Description
 A music app that allows a user to log in through Spotify, allows the user to input several users, combines those several users' tastes into one playlist, and adds that playlist to the user's account. 
 
+### App Walkthough GIF
+
+<img src="gif.gif" width=250><br>
+
 ### App Evaluation
-[Evaluation of your app across the following attributes]
 - **Category:**
 Music/Social Networking
 - **Mobile:**
@@ -94,62 +96,8 @@ First we are starting with producing a playlist that takes into account everyone
 * [Creation screen]
    * [OnTapCreate Playlist --> Playlist Screen]
    * [BackButton --> ProfileScreen]
-   
-   
-   
-
-   
-
-   
 
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
 <img src="wirefrane.png" width=600>
-
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
-
-## Schema 
-**Input**
-1. String hostName (Name of person creating playlist)
-2. Pointer to User userName (User that is generating playlist) 
-3. String playlistName (Name of playlist being generated)
-4. Pointer to User guestUsers (Usernames of people to merge with)
-
-**Output**
-1. String hostName (Name of person creating playlist)
-2. Pointer to playlist playlistPointer (Playlists owned by host)
-3. Array of pointers to songs playlistSongs (Songs in the playlist)
-
-
-### Models
-[Add table of models]
-### Networking
-- [List of network requests by screen ]
-1. Profile screen
-- (Read/GET) Query all songs in the users' public playlists.
-2. Creation page
-- (Create/POST) Create a new playlist with a combination of songs from all users' playlists and add to the host user's Spotify profile. 
-
-Evaluating App Ideas Protocol
-When evaluating ideas, you can consider the following:
-
-Mobile: How uniquely mobile is the product experience?
-What makes your app more than a glorified website?
-Try for 2 or more of these: maps, camera, location, audio, sensors, push, real-time, etc
-Story: How compelling is the story around this app once completed?
-How clear is the value of this app to your audience?
-How well would your friends or peers respond to this product idea?
-Market: How large or unique is the market for this app?
-What's the size and scale of your potential user base?
-Does this app provide huge value to a niche group of people?
-Do you have a well-defined audience of people for this app?
-Habit: How habit-forming or addictive is this app?
-How frequently would an average user open and use this app?
-Does an average user just consume your app or do they create?
-Scope: How well-formed is the scope for this app?
-How technically challenging will it be to complete this app by the end of the program?
-Is a stripped-down version of this app still interesting to build?
-How clearly defined is the product you want to build?
