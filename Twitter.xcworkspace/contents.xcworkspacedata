@@ -5,7 +5,7 @@
       location = "group:Tempo-Bridging-Header.h">
    </FileRef>
    <FileRef
-      location = "group:Twitter.xcodeproj">
+      location = "group:/Users/jason/Desktop/iOS Apps/Tempo/Tempo.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
