@@ -27,6 +27,11 @@ This app could be used as often as the user wants with several playlists for dif
 - **Scope:**
 First we are starting with producing a playlist that takes into account everyone's preferences, but later this could evolve into something that also takes into account a specific mood for the setting and attunes the songs in the playlist to accomodate the requested mood. Large potential for use with spotify, and other music sharing apps. 
 
+
+## Wireframes
+<img src="wirefrane.png" width=600>
+
+
 ## Product Spec
 
 ### 1. User Stories (Required and Optional)
@@ -93,8 +98,3 @@ First we are starting with producing a playlist that takes into account everyone
 * [Creation screen]
    * [OnTapCreate Playlist --> Playlist Screen]
    * [BackButton --> ProfileScreen]
-
-
-## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-<img src="wirefrane.png" width=600>
